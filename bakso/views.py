@@ -13,7 +13,7 @@ class BaksoView(ListView):
     
 class CreateView(CreateView):
     model = bakso
-    form_class = forms.FormAddBakso
+    form_class = forms.FormAd
     template_name = 'bakso\bakso-add.html'
     success_url = reverse_lazy('bakso:index')
     
