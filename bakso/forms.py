@@ -1,7 +1,7 @@
 from django import forms
 from .models import bakso
 
-class FormAddBakso(forms.ModelForm):
+class FormBakso(forms.ModelForm):
     class Meta:
         model = bakso
         fields = {
