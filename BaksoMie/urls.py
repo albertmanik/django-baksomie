@@ -8,5 +8,5 @@ from django.urls import path , include
 urlpatterns = [ 
     path('', include('web.urls')), 
     path('login/', include('login.urls')),
-    path('bakso/', include('bakso.urls')),
+    path('dashboard/bakso/', include('bakso.urls')),
 ]
