@@ -10,9 +10,9 @@ class BaksoView(ListView):
     queryset = bakso.objects.all()
     template_name = 'bakso/index.html'
     
-# class CreateView(CreateView):
-#     model = bakso
-#     form_class = forms.FormBakso
-#     template_name = 'bakso/add-bakso.html'
-#     success_url = reverse_lazy('bakso:index')
+class CreateView(CreateView):
+    model = bakso
+    form_class = forms.FormBakso
+    template_name = 'bakso/bakso-add.html'
+    success_url = reverse_lazy('bakso:index')
     

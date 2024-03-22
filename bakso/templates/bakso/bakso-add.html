@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "admin/base.html" %}
 {% load static %}
 {% block title %}
 Tambah Bakso
@@ -6,7 +6,7 @@ Tambah Bakso
 
 {% block content %}
 <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
+    {% csrf_token %}{{ form.as_p }}
     <button type="submit">Tambah</button>
 </form>
 {% endblock content %}
