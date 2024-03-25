@@ -51,44 +51,43 @@ Bakso
                             <table class="table all-package" id="editableTable">
                                 <thead>
                                     <tr>
-                                        <th>Order Image</th>
-                                        <th>Order Code</th>
-                                        <th>Date</th>
-                                        <th>Payment Method</th>
-                                        <th>Delivery Status</th>
-                                        <th>Amount</th>
+                                        <th>Nama</th>
+                                        <th>Gambar</th>
+                                        <th>Harga</th>
+                                        <th>Kategori</th>
+                                        <th>Deskripsi</th>
                                         <th>Option</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
+                                    {% for bakso in object_list %}
                                     <tr>
-                                        <td>
-                                            <img src="assets/images/dashboard/product/1.jpg" alt="users">
-                                        </td>
+                                        <td>{{ bakso.nama }}</td>
+                                        <td><img src="{{ bakso.gambar.url }}" alt=""></td>
 
-                                        <td data-field="number">+ 406-4883635</td>
+                                        <td data-field="number">Rp.{{ bakso.harga }}</td>
 
-                                        <td data-field="date">Jul 20, 2021</td>
+                                        <td data-field="text">{{ bakso.kategori }}</td>
 
-                                        <td data-field="text">Paypal</td>
-
-                                        <td class="order-success">
-                                            <span>Approved</span>
-                                        </td>
-
-                                        <td data-field="number">$15</td>
+                                        <td>{{ bakso.deskripsi|safe }}</td>
 
                                         <td>
                                             <a href="javascript:void(0)">
                                                 <i class="fa fa-edit" title="Edit"></i>
                                             </a>
 
-                                            <a href="javascript:void(0)">
+                                            <a href="#" onclick="event.preventDefault(); document.getElementById('delete-form-{{ bakso.pk }}').submit();">
+                                                {% csrf_token %}
                                                 <i class="fa fa-trash" title="Delete"></i>
                                             </a>
+                                            
+                                            <form id="delete-form-{{ bakso.pk }}" method="post" action="{% url 'bakso:delete' bakso.pk %}" style="display: none;">
+                                                {% csrf_token %}
+                                            </form>
+                                            
                                         </td>
-                                    </tr> 
+                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>

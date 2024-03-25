@@ -8,11 +8,13 @@ class FormBakso(forms.ModelForm):
             'nama',
             'gambar',
             'harga',
-            'kategori'
+            'kategori',
+            'deskripsi'
         }
         widgets = {
             'nama': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Nama Bakso'}),
             'gambar': forms.FileInput(attrs={'class':'form-control', 'type':'file'}),
             'harga': forms.NumberInput(attrs={'class':'form-control','placeholder':'Harga Bakso'}),
-            'kategori': forms.Select(attrs={'class':'custom-select'})
+            'kategori': forms.Select(attrs={'class':'form-control digits'}),
+            'deskripsi': forms.Textarea(attrs={'id':'editor1','cols':'10','rows':'4','placeholder':'Masukkan Deskripsi'})
         }
