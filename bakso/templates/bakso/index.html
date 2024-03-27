@@ -72,7 +72,7 @@ Bakso
                                         <td>{{ bakso.deskripsi|safe }}</td>
 
                                         <td>
-                                            <a href="javascript:void(0)">
+                                            <a href="{% url 'bakso:update' bakso.id %}">
                                                 <i class="fa fa-edit" title="Edit"></i>
                                             </a>
 

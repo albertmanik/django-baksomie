@@ -1,0 +1,112 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block title %}
+Edit Bakso
+{% endblock title %}
+
+{% block content %}
+
+<div class="page-body">
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="page-header">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="page-header-left">
+                        <h3>Edit Bakso
+                            <small>Bakso - Mie</small>
+                        </h3>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <ol class="breadcrumb pull-right">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'bakso:list' %}">
+                                <i data-feather="home"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">Bakso</li>
+                        <li class="breadcrumb-item active">Edit Product</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row product-adding"> 
+                            <div class="col-xl-12">
+                                <form method="POST" enctype="multipart/form-data" class="needs-validation add-product-form" novalidate="">
+                                    {% csrf_token %}
+                                    <div class="form">
+                                        <div class="form-group mb-3 row">
+                                            <label for="validationCustom01"
+                                                class="col-xl-3 col-sm-4 mb-0">Nama :</label>
+                                            <div class="col-xl-9 col-sm-8">
+                                                {{form.nama}}
+                                            </div>
+                                            <div class="valid-feedback">Looks good!</div>
+                                        </div>
+                                        <div class="form-group mb-3 row">
+                                            <label for="validationCustom01"
+                                                class="col-xl-3 col-sm-4 mb-0">Gambar/Foto :</label>
+                                            <div class="col-xl-9 col-sm-8">
+                                                {{form.gambar}}
+                                                {% if form.instance.gambar %}
+                                                <img src="{{ form.instance.gambar.url }}" alt="Gambar" width="300px">
+                                            {% endif %}
+                                            </div>
+                                            <div class="valid-feedback">Looks good!</div>
+                                        </div>
+                                        <div class="form-group mb-3 row">
+                                            <label for="validationCustom02"
+                                                class="col-xl-3 col-sm-4 mb-0">Harga :</label>
+                                            <div class="col-xl-9 col-sm-8">
+                                                {{form.harga}}
+                                            </div>
+                                            <div class="valid-feedback">Looks good!</div>
+                                        </div> 
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group row">
+                                            <label for="exampleFormControlSelect1"
+                                                class="col-xl-3 col-sm-4 mb-0">Kategori :</label>
+                                            <div class="col-xl-9 col-sm-8">
+                                                {{ form.kategori }}
+                                            </div>
+                                        </div> 
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-sm-4">Add Description :</label>
+                                            <div class="col-xl-9 col-sm-8 description-sm">
+                                                <!-- <textarea id="editor1" name="editor1" cols="10"
+                                                    rows="4"></textarea> -->
+                                                    {{ form.deskripsi }}
+                                            </div>
+                                            <div class="offset-xl-3 offset-sm-4 mt-4">
+                                                <button type="submit" class="btn btn-primary">Update</button>
+                                                <button type="button" class="btn btn-light">Discard</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+</div>
+
+{% endblock content %}
+
+{% block script %}
+
+{% endblock script %}
