@@ -11,6 +11,7 @@ class bakso(models.Model):
         ('ayam', 'Ayam'),
     )
     kategori = models.CharField(max_length=5, choices=KATEGORI_CHOICES)
+    deskripsi = models.TextField(max_length=256, default=None)
     
     def __str__(self):
         return self.nama
